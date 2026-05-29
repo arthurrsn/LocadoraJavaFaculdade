@@ -1,43 +1,26 @@
-# Locadora - Estrutura Inicial (Java POO + MVC)
+# Locadora
 
-Estrutura base do sistema de locadora usando Java puro (sem frameworks), com separacao em camadas:
+[![Status](https://img.shields.io/badge/status-in%20progress-yellow)](#)
 
-- `model`: classes de dominio
-- `controller`: manipulacao de dados
-- `view`: visualizacao
-- `dal`: acesso a arquivo (banco de dados em arquivo)
-- `factory`: fabrica de objetos das classes de dominio
-- `utils`: utilitarios
+Sistema de locadora em **Java POO**, sem frameworks externos, com arquitetura **MVC** e persistencia em arquivo.
 
-## Estrutura de pastas
+## Estrutura
 
-```text
-src/
-  Main.java
-  br/com/locadora/
-    model/
-      Usuario.java
-      Item.java
-      Filme.java
-      Jogo.java
-      Locacao.java
-    factory/
-      UsuarioFactory.java
-      FilmeFactory.java
-      JogoFactory.java
-      LocacaoFactory.java
-      package-info.java
-    controller/
-      package-info.java
-    view/
-      package-info.java
-    dal/
-      package-info.java
-    utils/
-      package-info.java
-```
+- `model` - entidades de dominio
+- `controller` - regras de manipulacao
+- `view` - interface de exibicao
+- `dal` - acesso a dados em arquivo
+- `factory` - criacao de objetos
+- `utils` - utilitarios
 
-## Como executar (PowerShell)
+## Situacao atual
+
+- Estrutura base do projeto criada
+- Models principais criados
+- Factories iniciais criadas
+- CRUD completo: **em desenvolvimento**
+
+## Executar (PowerShell)
 
 ```powershell
 Set-Location "D:\Projects\Locadora"
