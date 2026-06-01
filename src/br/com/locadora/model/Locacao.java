@@ -9,44 +9,23 @@ public class Locacao {
     private LocalDate dataLocacao;
     private LocalDate dataDevolucao;
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+    public Item getItem() { return item; }
+    public void setItem(Item item) { this.item = item; }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+    public LocalDate getDataLocacao() { return dataLocacao; }
+    public void setDataLocacao(LocalDate dataLocacao) { this.dataLocacao = dataLocacao; }
 
-    public Item getItem() {
-        return item;
-    }
+    public LocalDate getDataDevolucao() { return dataDevolucao; }
+    public void setDataDevolucao(LocalDate dataDevolucao) { this.dataDevolucao = dataDevolucao; }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
-    public LocalDate getDataLocacao() {
-        return dataLocacao;
-    }
-
-    public void setDataLocacao(LocalDate dataLocacao) {
-        this.dataLocacao = dataLocacao;
-    }
-
-    public LocalDate getDataDevolucao() {
-        return dataDevolucao;
-    }
-
-    public void setDataDevolucao(LocalDate dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
+    public boolean isAtiva() {
+        return dataDevolucao == null;
     }
 
     @Override
@@ -60,4 +39,3 @@ public class Locacao {
                 '}';
     }
 }
-
