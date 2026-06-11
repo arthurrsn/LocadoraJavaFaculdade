@@ -13,6 +13,13 @@ public class FilmeController {
     public Filme cadastrar(String titulo, String diretor, String genero, int duracao) {
         validarDados(titulo, diretor, genero, duracao);
 
+        // validação: filme com mesmo título já existe?
+        for (Filme f : filmeDAL.listar()) {
+            if (f.getTitulo().equalsIgnoreCase(titulo.trim())) {
+                throw new IllegalArgumentException("Ja existe um filme com esse titulo.");
+            }
+        }
+
         int novoId = gerarProximoId();
         Filme filme = FilmeFactory.criarFilme(novoId, titulo, true, diretor, genero, duracao);
         filmeDAL.inserir(filme);
@@ -24,6 +31,9 @@ public class FilmeController {
     }
 
     public Filme buscarPorId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("O id deve ser maior que zero.");
+        }
         return filmeDAL.buscarPorId(id);
     }
 

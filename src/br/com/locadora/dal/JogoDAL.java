@@ -36,6 +36,9 @@ public class JogoDAL {
     }
 
     public void inserir(Jogo jogo) {
+        if (jogo == null) {
+            throw new IllegalArgumentException("Jogo nao pode ser nulo.");
+        }
         List<Jogo> jogos = listar();
         jogos.add(jogo);
         gravarTodos(jogos);
@@ -69,7 +72,7 @@ public class JogoDAL {
                 escritor.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Erro ao gravar o arquivo de jogos: " + e.getMessage());
+            throw new RuntimeException("Erro ao gravar o arquivo de jogos: " + e.getMessage());
         }
     }
 

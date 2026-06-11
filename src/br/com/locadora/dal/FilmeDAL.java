@@ -36,6 +36,9 @@ public class FilmeDAL {
     }
 
     public void inserir(Filme filme) {
+        if (filme == null) {
+            throw new IllegalArgumentException("Filme nao pode ser nulo.");
+        }
         List<Filme> filmes = listar();
         filmes.add(filme);
         gravarTodos(filmes);
@@ -69,7 +72,7 @@ public class FilmeDAL {
                 escritor.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Erro ao gravar o arquivo de filmes: " + e.getMessage());
+            throw new RuntimeException("Erro ao gravar o arquivo de filmes: " + e.getMessage());
         }
     }
 
@@ -87,12 +90,12 @@ public class FilmeDAL {
         if (partes.length < 6) return null;
 
         try {
-            int id              = Integer.parseInt(partes[0].trim());
-            String titulo       = partes[1];
-            boolean disponivel  = Boolean.parseBoolean(partes[2]);
-            String diretor      = partes[3];
-            String genero       = partes[4];
-            int duracao         = Integer.parseInt(partes[5].trim());
+            int id             = Integer.parseInt(partes[0].trim());
+            String titulo      = partes[1];
+            boolean disponivel = Boolean.parseBoolean(partes[2]);
+            String diretor     = partes[3];
+            String genero      = partes[4];
+            int duracao        = Integer.parseInt(partes[5].trim());
 
             return FilmeFactory.criarFilme(id, titulo, disponivel, diretor, genero, duracao);
         } catch (NumberFormatException e) {

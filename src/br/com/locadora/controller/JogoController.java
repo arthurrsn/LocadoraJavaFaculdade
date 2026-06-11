@@ -13,6 +13,12 @@ public class JogoController {
     public Jogo cadastrar(String titulo, String plataforma, String genero, String estudio) {
         validarDados(titulo, plataforma, genero, estudio);
 
+        for (Jogo j : jogoDAL.listar()) {
+            if (j.getTitulo().equalsIgnoreCase(titulo.trim())) {
+                throw new IllegalArgumentException("Ja existe um jogo com esse titulo.");
+            }
+        }
+
         int novoId = gerarProximoId();
         Jogo jogo = JogoFactory.criarJogo(novoId, titulo, true, plataforma, genero, estudio);
         jogoDAL.inserir(jogo);
@@ -24,6 +30,9 @@ public class JogoController {
     }
 
     public Jogo buscarPorId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("O id deve ser maior que zero.");
+        }
         return jogoDAL.buscarPorId(id);
     }
 
