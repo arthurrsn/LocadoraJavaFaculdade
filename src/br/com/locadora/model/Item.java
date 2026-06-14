@@ -1,6 +1,6 @@
 package br.com.locadora.model;
 
-public abstract class Item {
+public abstract class Item implements Locavel {
     private int id;
     private String titulo;
     private boolean disponivel;
