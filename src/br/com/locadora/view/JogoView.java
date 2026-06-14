@@ -9,7 +9,15 @@ import java.util.Scanner;
 
 public class JogoView {
     private final JogoController controller = new JogoController();
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public JogoView() {
+        this(new Scanner(System.in));
+    }
+
+    public JogoView(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public static void main(String[] args) {
         new JogoView().exibirMenu();

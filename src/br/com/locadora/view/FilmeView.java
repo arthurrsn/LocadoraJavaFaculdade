@@ -9,7 +9,15 @@ import java.util.Scanner;
 
 public class FilmeView {
     private final FilmeController controller = new FilmeController();
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public FilmeView() {
+        this(new Scanner(System.in));
+    }
+
+    public FilmeView(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public static void main(String[] args) {
         new FilmeView().exibirMenu();

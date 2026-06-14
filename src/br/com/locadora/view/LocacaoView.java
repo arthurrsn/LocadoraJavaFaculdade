@@ -19,7 +19,15 @@ public class LocacaoView {
     private final UsuarioController usuarioController = new UsuarioController();
     private final FilmeController filmeController = new FilmeController();
     private final JogoController jogoController = new JogoController();
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public LocacaoView() {
+        this(new Scanner(System.in));
+    }
+
+    public LocacaoView(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public static void main(String[] args) {
         new LocacaoView().exibirMenu();

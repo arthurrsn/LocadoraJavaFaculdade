@@ -30,16 +30,16 @@ public class MenuView {
 
             switch (opcao) {
                 case 1:
-                    new UsuarioView().exibirMenu();
+                    new UsuarioView(scanner).exibirMenu();
                     break;
                 case 2:
-                    new FilmeView().exibirMenu();
+                    new FilmeView(scanner).exibirMenu();
                     break;
                 case 3:
-                    new JogoView().exibirMenu();
+                    new JogoView(scanner).exibirMenu();
                     break;
                 case 4:
-                    new LocacaoView().exibirMenu();
+                    new LocacaoView(scanner).exibirMenu();
                     break;
                 case 0:
                     System.out.println("Encerrando o sistema...");

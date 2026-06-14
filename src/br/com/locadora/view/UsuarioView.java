@@ -8,7 +8,15 @@ import java.util.Scanner;
 
 public class UsuarioView {
     private final UsuarioController controller = new UsuarioController();
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public UsuarioView() {
+        this(new Scanner(System.in));
+    }
+
+    public UsuarioView(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public static void main(String[] args) {
         new UsuarioView().exibirMenu();
